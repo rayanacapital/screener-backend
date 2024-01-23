@@ -34,7 +34,10 @@
   "dependencies": {
     "@rayanacapital/hermes": "^1.0.7",
     "@types/debug": "^4.1.12",
+    "axios": "^1.6.5",
     "debug": "^4.3.4",
-    "typescript": "^5.3.3"
+    "tardis-dev": "^13.27.2",
+    "typescript": "^5.3.3",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.10.0"
   }
 }

@@ -1,4 +1,4 @@
-type Entry = {
+export type Entry = {
   [key: string]: {
     total: number;
     buys: number;
@@ -8,7 +8,7 @@ type Entry = {
 
 const EMPTY_ENTRY: Entry = {};
 
-class TicksCounter {
+export class TicksCounter {
   private ticksToStore: number;
   private lastSixtySecondsTicks: Entry[] = [];
   private currentSecondTicks: Entry = {
@@ -61,5 +61,17 @@ class TicksCounter {
   getTopN(seconds: number, top: number) {
     const result = Object.entries(this.getLastN(seconds));
     return result.sort((a, b) => b[1].total - a[1].total).slice(0, top);
+  }
+
+  add(symbol: string, side: 'buy' | 'sell' | unknown) {
+    if (!this.currentSecondTicks[symbol]) {
+      this.currentSecondTicks[symbol] = {
+        buys: 0,
+        total: 0,
+        sells: 0,
+      };
+    }
+    this.currentSecondTicks[symbol].total++;
+    this.currentSecondTicks[symbol][side === 'buy' ? 'buys' : 'sells']++;
   }
 }

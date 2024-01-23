@@ -1,11 +1,15 @@
 import { createHermesService } from '@rayanacapital/hermes';
+import './periodicTasks';
+import { ws } from './ws';
 
 const pkg = require('../package.json');
 
 const port = process.env.PORT ? +process.env.PORT : 8087;
 
 const service = createHermesService({
-  // ...
+  wsRoutes: {
+    '/ws': ws,
+  },
 });
 
 async function start() {
