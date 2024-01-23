@@ -1,0 +1,38 @@
+{
+  "name": "screener-backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:rayanacapital/screener-backend.git",
+  "author": "Rayana <rayanacapital@gmail.com>",
+  "license": "MPL-2.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc",
+    "precommit": "lint-staged",
+    "prepare": "npm run build",
+    "format": "prettier --write .",
+    "check-format": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/ws": "^8.5.10",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@types/debug": "^4.1.12",
+    "hermes": "github:rayanacapital/hermes",
+    "debug": "^4.3.4",
+    "typescript": "^5.3.3"
+  }
+}
