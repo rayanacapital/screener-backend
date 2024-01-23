@@ -15,13 +15,15 @@
     "precommit": "lint-staged",
     "prepare": "npm run build",
     "format": "prettier --write .",
-    "check-format": "prettier --check ."
+    "check-format": "prettier --check .",
+    "dev": "ts-node-dev --respawn src/index"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
     "@types/ws": "^8.5.10",
     "lint-staged": "^15.2.0",
-    "prettier": "^3.2.4"
+    "prettier": "^3.2.4",
+    "ts-node-dev": "^2.0.0"
   },
   "lint-staged": {
     "*.{ts}": [
@@ -30,7 +32,7 @@
     ]
   },
   "dependencies": {
-    "@rayanacapital/hermes": "^1.0.5",
+    "@rayanacapital/hermes": "^1.0.7",
     "@types/debug": "^4.1.12",
     "debug": "^4.3.4",
     "typescript": "^5.3.3"
